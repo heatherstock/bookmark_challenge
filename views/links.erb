@@ -5,9 +5,13 @@
       <a href="<%= link.url %>" target="_blank">
         <%= link.title %>
       </a>
-      <form action="/delete_link" method="post">
+      <form action="/delete_link" method="POST">
         <input type="hidden" name="id" value="<%= link.id %>">
         <input type="submit" value="Delete link">
+      </form>
+
+      <form action="/edit_link/<%= link.id %>">
+        <input type="submit" value="Edit link">
       </form>
     </li>
   <% end %>

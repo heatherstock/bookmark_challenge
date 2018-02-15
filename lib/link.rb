@@ -21,7 +21,19 @@ class Link
   end
 
   def self.delete(id)
-    DatabaseConnection.query("DELETE FROM links WHERE id = #{:id}")
+    DatabaseConnection.query("DELETE FROM links WHERE id = #{id}")
+  end
+
+  def self.find(id)
+    DatabaseConnection.query("SELECT * FROM links WHERE id = #{id}").first
+  end
+
+  # def self.update(id, title, url)
+  #   DatabaseConnection.query("UPDATE links SET (title, url) = (#{title}, #{url}) WHERE id = #{id}")
+  # end
+
+  def self.update(params)
+    DatabaseConnection.query("UPDATE links SET (title, url) = ('#{params['title']}', '#{params['url']}') WHERE id = #{params['id']}")
   end
 
   private
@@ -30,3 +42,12 @@ class Link
     url =~ /^http:\/\/www\..+\..+/
   end
 end
+
+
+
+
+
+
+
+
+

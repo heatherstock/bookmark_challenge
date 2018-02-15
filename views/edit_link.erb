@@ -1,0 +1,8 @@
+<h1>Edit Link</h1>
+
+<form action="/update_link/<%= @link['id'] %>" method="post">
+<!--   <input type="hidden" name="_method" value="PUT"> -->
+  <input type="text" value="<%= @link['url'] %>" name="url">
+  <input type="text" value="<%= @link['title'] %>" name="title">
+  <input type="submit" value="Update link">
+</form>

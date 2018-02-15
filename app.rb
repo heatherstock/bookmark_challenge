@@ -23,7 +23,19 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/delete_link' do
-    Link.delete(id: params['id'])
+    Link.delete(params['id'])
+    redirect '/links'
+  end
+
+  get '/edit_link/:id' do
+    @link = Link.find(params['id'])
+    erb(:edit_link)
+  end
+
+  # WHY PUTS NOT WORKING??? check .erb
+  post '/update_link/:id' do
+    # Link.update(params['id'], params['title'], params['url'])
+    Link.update(params)
     redirect '/links'
   end
 

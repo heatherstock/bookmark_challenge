@@ -1,5 +1,5 @@
-feature "adding links" do
-  scenario "User can add links" do
+feature "add links" do
+  scenario "user can add links" do
     visit '/'
     fill_in("url", with: "http://www.instagram.com")
     fill_in("title", with: "Instagram")
