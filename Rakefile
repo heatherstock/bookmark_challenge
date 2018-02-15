@@ -16,9 +16,9 @@ task :setup_test_database do
 
   connection.exec("TRUNCATE links;")
 
-  connection.exec("INSERT INTO links VALUES(1, 'http://www.makersacademy.com', 'Makers Academy');")
-  connection.exec("INSERT INTO links VALUES(2, 'http://www.google.com', 'Google');")
-  connection.exec("INSERT INTO links VALUES(3, 'http://www.facebook.com', 'Facebook');")
+  connection.exec("INSERT INTO links (url, title) VALUES('http://www.makersacademy.com', 'Makers Academy');")
+  connection.exec("INSERT INTO links (url, title) VALUES('http://www.google.com', 'Google');")
+  connection.exec("INSERT INTO links (url, title) VALUES('http://www.facebook.com', 'Facebook');")
 end
 
 task :remove_database do
