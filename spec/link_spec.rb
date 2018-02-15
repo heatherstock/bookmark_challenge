@@ -16,5 +16,10 @@ describe Link do
       Link.add(url: 'http://www.instagram.com')
       expect(Link.all).to include 'http://www.instagram.com'
     end
+
+    it 'does not create link if url is incorrect' do
+      Link.add(url: "incorrect url")
+      expect(Link.all).not_to include "incorrect url"
+    end
   end
 end

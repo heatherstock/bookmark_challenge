@@ -12,7 +12,7 @@ task :setup do
 end
 
 task :setup_test_database do
-  p "insert test data into test database"
+  p "inserting test data into test database"
   connection = PG.connect(dbname: 'bookmark_manager_test')
 
   connection.exec("TRUNCATE links;")
@@ -22,7 +22,7 @@ task :setup_test_database do
   connection.exec("INSERT INTO links VALUES(3, 'http://www.facebook.com');")
 end
 
-task :remove_databases do
+task :remove_database do
   ['bookmark_manager', 'bookmark_manager_test'].each do |database|
     connection = PG.connect
     connection.exec("DROP DATABASE #{database};")
