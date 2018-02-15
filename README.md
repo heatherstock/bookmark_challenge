@@ -8,6 +8,12 @@ I would like to see a list of bookmarked links.
 
 As a user,
 So I can update my bookmark manager,
-I would like to be able to add links to Bookmark Manager. 
+I would like to be able to add links to Bookmark Manager.
+
+![Screenshot]
+
+As a user,
+So I can update my bookmark manager,
+I would like to be able to delete links from Bookmark Manager.
 
 ![Screenshot]
