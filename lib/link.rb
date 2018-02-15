@@ -21,7 +21,7 @@ class Link
   end
 
   def self.delete(id)
-    DatabaseConnection.query("DELETE FROM links WHERE id = #{id}")
+    DatabaseConnection.query("DELETE FROM links WHERE id = #{:id}")
   end
 
   private
