@@ -2,28 +2,28 @@ require "link"
 
 describe Link do
 
-  describe '#.all' do
-    it "returns all links, wrapped in link instances" do
+  describe '.all' do
+    it "returns all titles, wrapped in link instances" do
       links = Link.all
 
-      urls = links.map(&:url)
+      titles = links.map(&:title)
       # The above is the same as:
-      ### urls = links.map { |link| link.url }
+      ### titles = links.map { |link| link.title }
 
-      expect(urls).to include("http://www.makersacademy.com")
-      expect(urls).to include("http://www.google.com")
-      expect(urls).to include("http://www.facebook.com")
+      expect(titles).to include("Makers Academy")
+      expect(titles).to include("Google")
+      expect(titles).to include("Facebook")
     end
   end
 
-  describe '#.add' do
+  describe '.add' do
     it 'creates a new link' do
-      Link.add(url: 'http://www.instagram.com')
+      Link.add(url: 'http://www.instagram.com', title: 'Instagram')
 
       links = Link.all
-      urls = links.map(&:url)
+      titles = links.map(&:title)
 
-      expect(urls).to include 'http://www.instagram.com'
+      expect(titles).to include 'Instagram'
     end
 
     it 'does not create link if url is incorrect' do
