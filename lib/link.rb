@@ -1,10 +1,17 @@
 require_relative 'database_connection'
 
 class Link
+  attr_reader :id, :url
+
+  def initialize(id, url)
+    @id = id
+    @url = url
+  end
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM links")
-    result.map { |link| link['url'] }
+
+    result.map { |link| Link.new(link['id'], link['url']) }
   end
 
   def self.add(new_link)

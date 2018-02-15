@@ -33,7 +33,9 @@ Rake.application.load_rakefile
 
 RSpec.configure do |config|
   config.before(:each) do
-    Rake::Task['setup_test_database'].execute
+    # Rake::Task['setup'].execute
+    # Rake::Task['setup_test_database'].execute
+    # Rake::Task['remove_database'].execute
   end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
