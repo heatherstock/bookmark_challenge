@@ -1,10 +1,10 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 ruby '2.5.0'
 
 gem 'capybara'
-gem 'rspec'
-gem 'sinatra'
 gem 'pg'
+gem 'rspec'
 gem 'rake'
+gem 'sinatra'
 gem 'sinatra-flash'

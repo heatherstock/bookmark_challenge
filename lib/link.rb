@@ -10,14 +10,15 @@ class Link
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM links")
+    result = DatabaseConnection.query('SELECT * FROM links')
 
     result.map { |link| Link.new(link['id'], link['url'], link['title']) }
   end
 
   def self.add(new_link)
-    return false unless is_url?(new_link[:url])
-    DatabaseConnection.query("INSERT INTO links (url, title) VALUES('#{new_link[:url]}', '#{new_link[:title]}')")
+    return nil unless url?(new_link[:url])
+    result = DatabaseConnection.query("INSERT INTO links (url, title) VALUES('#{new_link[:url]}', '#{new_link[:title]}') RETURNING id")
+    result[0]['id']
   end
 
   def self.delete(old_link)
@@ -26,7 +27,7 @@ class Link
 
   private
 
-  def self.is_url?(url)
+  def self.url?(url)
     url =~ /^http:\/\/www\..+\..+/
   end
 end
